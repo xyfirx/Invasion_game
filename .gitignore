@@ -1,0 +1,7 @@
+.venv-pygame/
+__pycache__/
+*.pyc
+.mypy_cache/
+.vscode/
+.DS_Store
+save_data.json
