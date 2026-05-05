@@ -1,0 +1,1 @@
+"""Пакет игры Invasion Defense."""
