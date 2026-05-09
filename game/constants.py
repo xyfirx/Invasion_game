@@ -49,7 +49,132 @@ class LevelStats:
     obstacle_cost: int
     obstacles: tuple[tuple[str, int, int], ...]
 
-LEVELS: tuple[LevelStats, ...] = ()
-TOWER_DESCRIPTIONS: dict[str, str] = {}
-OBSTACLE_NAMES: dict[str, str] = {}
-TOWER_TYPES: dict[str, TowerStats] = {}
+LEVELS: tuple[LevelStats, ...] = (
+    LevelStats(
+        name="Космическая битва",
+        path_cells=(
+            (0, 2), (2, 2), (2, 7), (5, 7), (5, 3),
+            (9, 3), (9, 8), (13, 8), (13, 5), (15, 5),
+        ),
+        waves=5,
+        start_money=220,
+        start_lives=20,
+        enemy_hp_mult=1.0,
+        enemy_speed_mult=1.0,
+        par_time=140.0,
+        base_score_time=120.0,
+        theme="desert",
+        decor=("dune", "rock", "crater", "antenna"),
+        goal="База людей",
+        obstacle_cost=22,
+        obstacles=(
+            ("rock", 4, 5),
+            ("rock", 7, 6),
+            ("scrap", 11, 4),
+            ("scrap", 9, 10),
+        ),
+    ),
+    LevelStats(
+        name="Стычка в поле",
+        path_cells=(
+            (0, 9), (2, 9), (2, 4), (5, 4), (5, 10), (8, 10),
+            (8, 2), (11, 2), (11, 8), (14, 8), (14, 3), (15, 3),
+        ),
+        waves=6,
+        start_money=250,
+        start_lives=18,
+        enemy_hp_mult=1.18,
+        enemy_speed_mult=1.12,
+        par_time=165.0,
+        base_score_time=145.0,
+        theme="field",
+        decor=("tree", "hill", "barn", "windmill"),
+        goal="Домик в деревне",
+        obstacle_cost=28,
+        obstacles=(
+            ("tree", 3, 5),
+            ("tree", 6, 3),
+            ("hay", 9, 6),
+            ("fence", 12, 7),
+            ("rock", 7, 8),
+        ),
+    ),
+    LevelStats(
+        name="Нападение на город",
+        path_cells=(
+            (0, 6), (3, 6), (3, 2), (6, 2), (6, 9),
+            (9, 9), (9, 3), (12, 3), (12, 8), (15, 8),
+        ),
+        waves=7,
+        start_money=280,
+        start_lives=16,
+        enemy_hp_mult=1.35,
+        enemy_speed_mult=1.22,
+        par_time=200.0,
+        base_score_time=175.0,
+        theme="city",
+        decor=("building", "tree", "streetlight", "car"),
+        goal="Администрация города",
+        obstacle_cost=35,
+        obstacles=(
+            ("building", 4, 4),
+            ("car", 7, 5),
+            ("tree", 10, 6),
+            ("building", 11, 10),
+            ("streetlight", 8, 7),
+        ),
+    ),
+)
+
+TOWER_DESCRIPTIONS: dict[str, str] = {
+    "blaster": (
+        "Быстрая базовая башня для постоянного урона "
+        "по одиночным целям."
+    ),
+    "frost": "Замедляет противников и удерживает их в зоне поражения дольше.",
+    "pulse": "Сильный выстрел с площадным уроном для плотных волн врагов.",
+}
+
+OBSTACLE_NAMES: dict[str, str] = {
+    "rock": "Камень",
+    "tree": "Дерево",
+    "scrap": "Обломки",
+    "hay": "Стог сена",
+    "fence": "Забор",
+    "building": "Здание",
+    "car": "Машина",
+    "streetlight": "Фонарь",
+}
+
+TOWER_TYPES: dict[str, TowerStats] = {
+    "blaster": TowerStats(
+        name="Бластер",
+        cost=70,
+        damage=24,
+        range_px=145,
+        fire_rate=1.3,
+        projectile_speed=330,
+        color=(96, 204, 252),
+    ),
+    "frost": TowerStats(
+        name="Крио",
+        cost=95,
+        damage=12,
+        range_px=130,
+        fire_rate=0.9,
+        projectile_speed=280,
+        color=(161, 201, 255),
+        slow_factor=0.58,
+        slow_duration=1.8,
+    ),
+    "pulse": TowerStats(
+        name="Плазма",
+        cost=130,
+        damage=32,
+        range_px=160,
+        fire_rate=0.7,
+        projectile_speed=250,
+        color=(255, 148, 93),
+        splash_radius=46,
+    ),
+}
