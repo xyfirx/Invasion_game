@@ -84,9 +84,9 @@ def handle_click(game: "Game", mx: float, my: float) -> None:
             return
         return
 
-    if 0 <= mx < game.current_level_width and 0 <= my < game.current_level_height:
-        col = int(mx // game.cell_size)
-        row = int(my // game.cell_size)
+    if 0 <= mx < game.FIELD_WIDTH and 0 <= my < game.FIELD_HEIGHT:
+        col = int(mx // game.CELL_SIZE)
+        row = int(my // game.CELL_SIZE)
         obstacle = None
         for obstacle_item in game.obstacles:
             if obstacle_item["col"] == col and obstacle_item["row"] == row:

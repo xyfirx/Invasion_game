@@ -35,3 +35,15 @@ def star_for_result(level: LevelStats, time_taken: float, damage_taken: int, suc
     if quality >= 0.72:
         return 2
     return 1
+
+
+def theme_path_tint(theme: str) -> tuple[int, int, int]:
+    if theme == "desert":
+        return (132, 121, 90)
+    if theme == "field":
+        return (92, 92, 58)
+    return (104, 108, 132)
+
+
+def star_text(stars: int) -> str:
+    return f"{max(0, min(3, stars))}/3"

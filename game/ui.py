@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import pygame
+from typing import cast
 
 from .constants import (
     ACCENT,
@@ -25,4 +26,4 @@ from .utils import star_text, theme_path_tint
 
 
 def draw(game: "Game") -> None:
-    pass
+    game.screen.fill((0, 0, 0))
