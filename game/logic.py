@@ -157,6 +157,9 @@ def register_enemy_kill(game: "Game", enemy: Enemy) -> None:
 
 
 def spawn_enemy(game: "Game") -> None:
+    if not game.waypoints:
+        return
+
     sx, sy = game.waypoints[0]
 
     hp = (88 + game.wave_number * 26 + random.randint(-12, 20)) * game.current_level.enemy_hp_mult
@@ -205,3 +208,19 @@ def spawn_enemy(game: "Game") -> None:
             variant=variant,
         )
     )
+
+
+def start_wave(game: "Game") -> None:
+    if game.game_over or game.victory or game.in_wave:
+        return
+
+    game.wave_number += 1
+    game.wave_spawned = 0
+    game.wave_to_spawn = min(20, 5 + game.wave_number * 3)
+    game.spawn_cooldown = 0.0
+    game.wave_kills = 0
+    game.in_wave = True
+
+    if game.wave_number > game.current_level.waves:
+        game.wave_number = game.current_level.waves
+        game.in_wave = False
