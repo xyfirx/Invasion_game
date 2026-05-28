@@ -1,0 +1,9 @@
+{
+    "python.defaultInterpreterPath": "${workspaceFolder}\\.venv-pygame\\Scripts\\python.exe",
+    "chat.tools.terminal.autoApprove": {
+        "/^C:/Users/timof/AppData/Local/Programs/Python/Python314/python\\.exe -m compileall \\.$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}

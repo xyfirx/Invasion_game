@@ -127,12 +127,9 @@ LEVELS: tuple[LevelStats, ...] = (
 )
 
 TOWER_DESCRIPTIONS: dict[str, str] = {
-    "blaster": (
-        "Быстрая базовая башня для постоянного урона "
-        "по одиночным целям."
-    ),
+    "blaster": "Простая мощная пушка для стабильного урона по одним целям.",
     "frost": "Замедляет противников и удерживает их в зоне поражения дольше.",
-    "pulse": "Сильный выстрел с площадным уроном для плотных волн врагов.",
+    "pulse": "Снайперская пушка: медленно стреляет, но бьёт очень тяжело и далеко.",
 }
 
 OBSTACLE_NAMES: dict[str, str] = {
@@ -148,7 +145,7 @@ OBSTACLE_NAMES: dict[str, str] = {
 
 TOWER_TYPES: dict[str, TowerStats] = {
     "blaster": TowerStats(
-        name="Бластер",
+        name="Пушка",
         cost=70,
         damage=24,
         range_px=145,
@@ -157,7 +154,7 @@ TOWER_TYPES: dict[str, TowerStats] = {
         color=(96, 204, 252),
     ),
     "frost": TowerStats(
-        name="Крио",
+        name="Замедлялка",
         cost=95,
         damage=12,
         range_px=130,
@@ -168,13 +165,12 @@ TOWER_TYPES: dict[str, TowerStats] = {
         slow_duration=1.8,
     ),
     "pulse": TowerStats(
-        name="Плазма",
-        cost=130,
-        damage=32,
-        range_px=160,
-        fire_rate=0.7,
-        projectile_speed=250,
+        name="Снайпер",
+        cost=150,
+        damage=72,
+        range_px=320,
+        fire_rate=0.35,
+        projectile_speed=420,
         color=(255, 148, 93),
-        splash_radius=46,
     ),
 }
